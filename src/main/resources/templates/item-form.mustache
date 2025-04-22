@@ -1,13 +1,37 @@
-<h1>📦 중고 물품 등록</h1>
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<div class="container">
+    <h1>➕ 물품 등록</h1>
 
-<form method="post" action="/items">
-    <input type="text" name="title" placeholder="물품 이름"><br>
-    <input type="text" name="description" placeholder="설명"><br>
-    <input type="number" name="price" placeholder="가격"><br>
-    <select name="status">
-        <option value="ON_SALE">판매중</option>
-        <option value="RESERVED">예약중</option>
-        <option value="SOLD_OUT">판매완료</option>
-    </select><br>
-    <button type="submit">등록하기</button>
-</form>
+    <form method="post" action="/items">
+        <div class="form-group">
+            <label>제목</label>
+            <input type="text" name="title" placeholder="제목 입력" required/>
+        </div>
+
+        <div class="form-group">
+            <label>설명</label>
+            <textarea name="description" placeholder="물품 설명" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>가격</label>
+            <input type="number" name="price" placeholder="가격 입력" required/>
+        </div>
+
+        <div class="form-group">
+            <label>상태</label>
+            <select name="status">
+                <option value="ON_SALE">판매중</option>
+                <option value="RESERVED">예약중</option>
+                <option value="SOLD_OUT">판매완료</option>
+            </select>
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit">등록하기</button>
+            <a href="/items" class="btn-cancel">취소</a>
+        </div>
+    </form>
+</div>

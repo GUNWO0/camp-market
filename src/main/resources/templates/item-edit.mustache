@@ -1,24 +1,25 @@
-<h1>✏️ 물품 수정</h1>
-
-<form method="post" action="/items/{{id}}/edit">
-    <label>제목</label><br/>
-    <input type="text" name="title" value="{{title}}" required><br/><br/>
-
-    <label>가격</label><br/>
-    <input type="number" name="price" value="{{price}}" required><br/><br/>
-
-    <label>상태</label><br/>
-    <select name="status">
-        <option value="ON_SALE" {{#isOnSale}}selected{{/isOnSale}}>판매중</option>
-        <option value="RESERVED" {{#isReserved}}selected{{/isReserved}}>예약중</option>
-        <option value="SOLD_OUT" {{#isSoldOut}}selected{{/isSoldOut}}>판매완료</option>
-    </select><br/><br/>
-
-    <label>설명</label><br/>
-    <textarea name="description" required>{{description}}</textarea><br/><br/>
-
-    <button type="submit">💾 저장</button>
-</form>
-
-<br/>
-<a href="/items/{{id}}">🔙 돌아가기</a>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>물품 수정</title>
+</head>
+<body>
+<div class="container">
+    <h1>✏️ 물품 수정</h1>
+    <form action="/items/{{item.id}}/edit" method="post" class="form-box">
+        <input type="text" name="title" value="{{item.title}}" required/>
+        <input type="number" name="price" value="{{item.price}}" required/>
+        <select name="status">
+            <option value="ON_SALE" {{#isOnSale}}selected{{/isOnSale}}>판매중</option>
+            <option value="RESERVED" {{#isReserved}}selected{{/isReserved}}>예약중</option>
+            <option value="SOLD_OUT" {{#isSoldOut}}selected{{/isSoldOut}}>판매완료</option>
+        </select>
+        <textarea name="description">{{item.description}}</textarea>
+        <button type="submit">수정 완료</button>
+    </form>
+    <a href="/items/{{item.id}}" class="back-link">← 상세 보기</a>
+</div>
+</body>
+</html>

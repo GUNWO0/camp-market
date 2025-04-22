@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>학교 중고장터</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<!-- 상단 헤더 영역 -->
+<header class="navbar">
+    <div class="navbar-left">
+        <img src="/img/box-icon.png" alt="로고" class="logo"/>
+        <span class="brand-name">학교장터</span>
+    </div>
+    <div class="navbar-right">
+        <a href="/items/new" class="btn-nav">물품 등록</a>
+        <a href="/login" class="btn-login">로그인</a>
+    </div>
+</header>
+
+<!-- 검색 및 필터 영역 -->
+<section class="search-filter">
+    <div class="location">📍 대연동</div>
+    <form method="get" action="/items" class="search-form">
+        <input type="text" name="keyword" placeholder="검색어를 입력하세요">
+        <button type="submit">🔍</button>
+    </form>
+    <form method="get" action="/items" class="filter-form">
+        <select name="status">
+            <option value="">전체</option>
+            <option value="ON_SALE">판매중</option>
+            <option value="RESERVED">예약중</option>
+            <option value="SOLD_OUT">판매완료</option>
+        </select>
+        <button type="submit">필터</button>
+    </form>
+</section>
+
+<!-- 목록 -->
+<main class="item-list">
+    {{#items}}
+        <div class="item-card">
+            <h3>{{title}}</h3>
+            <p>{{price}}원</p>
+            <p>{{status}}</p>
+            <a href="/items/{{id}}">📄 상세</a>
+            <a href="/items/{{id}}/edit">✏️ 수정</a>
+            <form method="post" action="/items/{{id}}/delete" style="display:inline;">
+                <button type="submit" onclick="return confirm('정말 삭제할까요?')">🗑️ 삭제</button>
+            </form>
+        </div>
+    {{/items}}
+
+    {{^items}}
+        <p>등록된 상품이 없습니다.</p>
+    {{/items}}
+</main>
+
+</body>
+</html>

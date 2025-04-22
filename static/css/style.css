@@ -1,0 +1,94 @@
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+}
+
+.brand-name {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.navbar-right a {
+    margin-left: 12px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-nav {
+    background-color: #f6f6f6;
+    border: 1px solid #ddd;
+    padding: 8px 16px;
+    border-radius: 6px;
+    color: #333;
+}
+
+.btn-login {
+    background-color: #ff9900;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.hero {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.location {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.search-area {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.search-area form {
+    display: flex;
+    gap: 10px;
+}
+
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.item-card {
+    border: 1px solid #ddd;
+    padding: 16px;
+    width: 280px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.item-buttons {
+    margin-top: 10px;
+}

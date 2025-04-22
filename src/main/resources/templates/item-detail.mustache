@@ -1,16 +1,25 @@
-<h1>📦 물품 상세 정보</h1>
-
-<p><strong>제목:</strong> {{title}}</p>
-<p><strong>가격:</strong> {{price}}원</p>
-<p><strong>상태:</strong> {{status}}</p>
-<p><strong>설명:</strong> {{description}}</p>
-<p><strong>판매자:</strong> {{seller.nickname}}</p>
-
-<!-- 버튼들 -->
-<a href="/items/{{id}}/edit">✏️ 수정</a>
-<form method="post" action="/items/{{id}}/delete" style="display:inline;">
-    <button type="submit" onclick="return confirm('정말 삭제할까요?')">🗑️ 삭제</button>
-</form>
-
-<br/><br/>
-<a href="/items">🔙 목록으로</a>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>물품 상세</title>
+</head>
+<body>
+<div class="container">
+    <h1>📦 {{item.title}}</h1>
+    <div class="item-card">
+        <p><strong>가격:</strong> {{item.price}}원</p>
+        <p><strong>상태:</strong> {{item.status}}</p>
+        <p><strong>설명:</strong> {{item.description}}</p>
+        <p><strong>판매자:</strong> {{item.seller.nickname}}</p>
+    </div>
+    <a href="/items/{{item.id}}/edit">✏️ 수정</a>
+    <form method="post" action="/items/{{item.id}}/delete" style="display:inline;">
+        <button type="submit" onclick="return confirm('정말 삭제할까요?')">🗑️ 삭제</button>
+    </form>
+    <br>
+    <a href="/items" class="back-link">← 목록으로</a>
+</div>
+</body>
+</html>

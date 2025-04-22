@@ -1,37 +1,60 @@
-<h1>📦 중고 장터 - 물품 목록</h1>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>중고 장터</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
 
-<a href="/items/new">➕ 물품 등록</a>
+<header class="navbar">
+    <div class="navbar-left">
+        <img src="/images/box.png" alt="logo" class="logo">
+        <span class="brand-name">학교장터</span>
+    </div>
+    <div class="navbar-right">
+        <a href="/items/new" class="btn-nav">➕ 물품 등록</a>
+        <a href="#" class="btn-login">로그인</a>
+    </div>
+</header>
 
-<form method="get" action="/items" style="margin-bottom: 20px;">
-    <input type="text" name="keyword" placeholder="검색어를 입력하세요"/>
-    <button type="submit">검색</button>
-</form>
+<section class="hero">
+    <h1><span class="location">📍경성대</span>에서 필요한 물품을 찾아보세요</h1>
+</section>
 
-<form method="get" action="/items" style="margin-bottom: 20px;">
-    <select name="status">
-        <option value="">전체</option>
-        <option value="ON_SALE">판매중</option>
-        <option value="RESERVED">예약중</option>
-        <option value="SOLD_OUT">판매완료</option>
-    </select>
-    <button type="submit">필터 적용</button>
-</form>
+<section class="search-area">
+    <form method="get" action="/items">
+        <input type="text" name="keyword" placeholder="검색어를 입력하세요">
+        <select name="status">
+            <option value="">전체</option>
+            <option value="ON_SALE">판매중</option>
+            <option value="RESERVED">예약중</option>
+            <option value="SOLD_OUT">판매완료</option>
+        </select>
+        <button type="submit">검색</button>
+    </form>
+</section>
 
-
-<ul>
+<section class="items">
     {{#items}}
-        <li>
-            <strong>{{title}}</strong> - {{price}}원<br/>
-            상태: {{status}}<br/>
-            설명: {{description}}<br/>
-            판매자: {{seller.nickname}}<br/>
-
-            <!-- 👇 버튼 추가 -->
-            <a href="/items/{{id}}/edit">✏️ 수정</a>
-            <form method="post" action="/items/{{id}}/delete" style="display:inline;">
-                <button type="submit" onclick="return confirm('정말 삭제할까요?')">🗑️ 삭제</button>
-            </form>
-            <hr/>
-        </li>
+        <div class="item-card">
+            <h3>{{title}}</h3>
+            <p>{{price}}원 | {{status}}</p>
+            <p>{{description}}</p>
+            <p>판매자: {{seller.nickname}}</p>
+            <div class="item-buttons">
+                <a href="/items/{{id}}/edit">✏️ 수정</a>
+                <form method="post" action="/items/{{id}}/delete" style="display:inline;">
+                    <button type="submit">🗑 삭제</button>
+                </form>
+            </div>
+        </div>
     {{/items}}
-</ul>
+
+    {{^items}}
+        <p>등록된 물품이 없습니다.</p>
+    {{/items}}
+</section>
+
+</body>
+</html>
