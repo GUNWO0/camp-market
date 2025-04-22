@@ -1,0 +1,13 @@
+<h1>📦 중고 물품 등록</h1>
+
+<form method="post" action="/items">
+    <input type="text" name="title" placeholder="물품 이름"><br>
+    <input type="text" name="description" placeholder="설명"><br>
+    <input type="number" name="price" placeholder="가격"><br>
+    <select name="status">
+        <option value="ON_SALE">판매중</option>
+        <option value="RESERVED">예약중</option>
+        <option value="SOLD_OUT">판매완료</option>
+    </select><br>
+    <button type="submit">등록하기</button>
+</form>

@@ -1,0 +1,19 @@
+<h1>📦 중고 장터 - 물품 목록</h1>
+
+<a href="/items/new">➕ 물품 등록</a>
+
+<ul>
+    {{#items}}
+        <li>
+            <strong>{{title}}</strong> - {{price}}원<br/>
+            상태: {{status}}<br/>
+            설명: {{description}}<br/>
+            판매자: {{seller.nickname}}<br/>
+            <hr/>
+        </li>
+    {{/items}}
+
+    {{^items}}
+        <li>등록된 물품이 없습니다.</li>
+    {{/items}}
+</ul>
