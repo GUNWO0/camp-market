@@ -1,0 +1,14 @@
+<h1>📝 물품 상세 보기</h1>
+
+<p><strong>제목:</strong> {{item.title}}</p>
+<p><strong>가격:</strong> {{item.price}}원</p>
+<p><strong>상태:</strong> {{item.status}}</p>
+<p><strong>설명:</strong> {{item.description}}</p>
+<p><strong>판매자:</strong> {{item.seller.nickname}}</p>
+
+<a href="/items/{{item.id}}/edit">✏️ 수정</a>
+<form method="post" action="/items/{{item.id}}/delete" style="display:inline;">
+    <button type="submit">🗑 삭제</button>
+</form>
+
+<a href="/items">⬅ 목록으로</a>
