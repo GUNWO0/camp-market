@@ -1,14 +1,16 @@
-<h1>📝 물품 상세 보기</h1>
+<h1>📦 물품 상세 정보</h1>
 
-<p><strong>제목:</strong> {{item.title}}</p>
-<p><strong>가격:</strong> {{item.price}}원</p>
-<p><strong>상태:</strong> {{item.status}}</p>
-<p><strong>설명:</strong> {{item.description}}</p>
-<p><strong>판매자:</strong> {{item.seller.nickname}}</p>
+<p><strong>제목:</strong> {{title}}</p>
+<p><strong>가격:</strong> {{price}}원</p>
+<p><strong>상태:</strong> {{status}}</p>
+<p><strong>설명:</strong> {{description}}</p>
+<p><strong>판매자:</strong> {{seller.nickname}}</p>
 
-<a href="/items/{{item.id}}/edit">✏️ 수정</a>
-<form method="post" action="/items/{{item.id}}/delete" style="display:inline;">
-    <button type="submit">🗑 삭제</button>
+<!-- 버튼들 -->
+<a href="/items/{{id}}/edit">✏️ 수정</a>
+<form method="post" action="/items/{{id}}/delete" style="display:inline;">
+    <button type="submit" onclick="return confirm('정말 삭제할까요?')">🗑️ 삭제</button>
 </form>
 
-<a href="/items">⬅ 목록으로</a>
+<br/><br/>
+<a href="/items">🔙 목록으로</a>

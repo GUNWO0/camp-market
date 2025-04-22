@@ -2,6 +2,22 @@
 
 <a href="/items/new">➕ 물품 등록</a>
 
+<form method="get" action="/items" style="margin-bottom: 20px;">
+    <input type="text" name="keyword" placeholder="검색어를 입력하세요"/>
+    <button type="submit">검색</button>
+</form>
+
+<form method="get" action="/items" style="margin-bottom: 20px;">
+    <select name="status">
+        <option value="">전체</option>
+        <option value="ON_SALE">판매중</option>
+        <option value="RESERVED">예약중</option>
+        <option value="SOLD_OUT">판매완료</option>
+    </select>
+    <button type="submit">필터 적용</button>
+</form>
+
+
 <ul>
     {{#items}}
         <li>
@@ -9,11 +25,13 @@
             상태: {{status}}<br/>
             설명: {{description}}<br/>
             판매자: {{seller.nickname}}<br/>
+
+            <!-- 👇 버튼 추가 -->
+            <a href="/items/{{id}}/edit">✏️ 수정</a>
+            <form method="post" action="/items/{{id}}/delete" style="display:inline;">
+                <button type="submit" onclick="return confirm('정말 삭제할까요?')">🗑️ 삭제</button>
+            </form>
             <hr/>
         </li>
-    {{/items}}
-
-    {{^items}}
-        <li>등록된 물품이 없습니다.</li>
     {{/items}}
 </ul>
